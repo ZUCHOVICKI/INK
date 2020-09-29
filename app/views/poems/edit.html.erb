@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag "poems" %>
+<nav>
+    <div class="nav-wrapper black op">
+      <a ><%= link_to "Home",root_path, class:"ink" %></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Menu",poems_path,class:"ink" %></li>
+        <li><%= link_to "Nuevo Poema",new_poem_path,class:"ink" %></li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="row">
+<div class="card col s5 offset-s3 center-align">
+<h1 class="card-title ink">Editando <%= @poem.title %></h1>
+<%= simple_form_for @poem do |x| %>
+ <div class="row center-align">
+    <div class="input-field  center-align">
+      
+
+      <%= x.input :title , input_html: {class: 'validate ' , id: 'Name'},wrapper: false, label: false%>
+      <label for="Name" class="active"></label>
+    </div>
+</div>
+<div class="row center-align">
+    <div class="input-field  center-align">
+      
+
+      <%= x.input :body , input_html: {class: 'validate  materialize-textarea' , id: 'Text' , },wrapper: false , label_html:{class:'textarea'} , label: false %>
+      <label for="Text" class="active" ></label>
+    </div>
+
+</div>
+<%= x.button :submit, 'Editar', class:"btn-large" %>
+<% end %>
+</div>
+</div>

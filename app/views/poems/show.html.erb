@@ -1,0 +1,34 @@
+<%= stylesheet_link_tag "poems" %>
+<nav>
+    <div class="nav-wrapper black op">
+      <a ><%= link_to "Home",root_path, class:"ink" %></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Menu",poems_path,class:"ink" %></li>
+        <li><%= link_to "Nuevo Poema",new_poem_path,class:"ink" %></li>
+      </ul>
+    </div>
+  </nav>
+<h1 class=""><%= @poem.title %></h1>
+
+<div class="content"><%= @poem.body%></div>
+          
+
+
+        <%= link_to "Editar",edit_poem_path(@poem) , class: "btn-large" %>
+  
+     <a class="waves-effect waves-light btn-large modal-trigger red" href="#modal1">Borrar</a>
+
+
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 class="center-align ink">Estas seguro ?</h4>
+      
+    </div>
+    <div class="modal-footer ">
+        <div class="row">
+      <a href="#!" class="btn-flat center-align col s6">No </a>
+      <%= link_to "Si",poem_path(@poem),method: :delete , class:"btn-large red center-align col s6" %>
+    </div>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "poems" %>
+<nav>
+    <div class="nav-wrapper black op">
+      <a ><%= link_to "Home",root_path, class:"ink" %></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Menu",poems_path,class:"ink" %></li>
+        <li><%= link_to "Nuevo Poema",new_poem_path,class:"ink" %></li>
+      </ul>
+    </div>
+  </nav>
+<div class="row">
+<% @poems.each do |x| %>
+
+    <div class="col s6 offset-s3 ">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= x.title %></span>
+          <p><%= x.body %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Commentarios", x%>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>
+</div>
